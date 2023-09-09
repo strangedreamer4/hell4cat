@@ -7,16 +7,16 @@ cd "$INSTALL_DIR"
 git pull origin master
 
 # Display update message
-echo "hellcat has been updated."
+echo "hell4cat has been updated."
 
 
 
 
 
 # Define the repository URL
-REPO_URL="https://github.com/strangedreamer4/hellcat.git"
+REPO_URL="https://github.com/strangedreamer4/hell4cat.git"
 # Define the repository directory
-REPO_DIR="hellcat"
+REPO_DIR="hell4cat"
 
 # Navigate to the parent directory
 cd ..

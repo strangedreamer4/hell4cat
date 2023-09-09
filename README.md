@@ -11,7 +11,7 @@ requirements.
 <> pip3                                                             
 ____________________________________________________________________
 
-git clone https://github.com/strangedreamer4/hellcat.git            
+git clone https://github.com/strangedreamer4/hell4cat.git            
 
 cd hellcat                                                          
 

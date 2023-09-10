@@ -47,7 +47,7 @@ def shell():
         except subprocess.CalledProcessError as e:
             command_output = f"Error: {e.returncode}\n{e.output}"
 
-    return render_template('shell.html', command_output=command_output)
+    return render_template('index.html', command_output=command_output)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=2424)

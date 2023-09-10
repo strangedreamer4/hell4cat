@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Shell</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: "Courier New", monospace;
+        }
+        h1, h2 {
+            color: cyan;
+        }
+        input[type="text"], input[type="submit"] {
+            background-color: black;
+            color: lime;
+            border: 1px solid lime;
+            padding: 5px;
+        }
+        input[type="text"] {
+            width: 80%;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+        }
+        pre {
+            background-color: black;
+            color: lime;
+            border: 1px solid lime;
+            padding: 10px;
+            white-space: pre-wrap;
+            overflow: auto;
+            max-height: 300px;
+        }
+    </style>
+    <script>
+        // Add a cool hacker-style blinking cursor animation
+        setInterval(function() {
+            var cursor = document.getElementById('cursor');
+            cursor.style.visibility = (cursor.style.visibility === 'hidden') ? 'visible' : 'hidden';
+        }, 500);
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Interactive Shell</h1>
+    <form method="post">
+        <input type="text" name="command" size="50">
+        <input type="submit" value="Run Command">
+    </form>
+    <br>
+    <a href="/logout">Logout</a>
+    
+    {% if command_output %}
+    <h2>Command Output:</h2>
+    <pre>{{ command_output }}</pre>
+    {% endif %}
+    
+    <span id="cursor">_</span>
+</body>
+</html>

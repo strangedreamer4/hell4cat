@@ -37,27 +37,17 @@ def shell():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
 
+    command_output = None
+
     if request.method == 'POST':
         command = request.form.get('command')
         try:
             result = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT, universal_newlines=True)
-            return result
+            command_output = result
         except subprocess.CalledProcessError as e:
-            return f"Error: {e.returncode}\n{e.output}"
-    return '''
-        <html>
-        <head><title>Interactive Shell</title></head>
-        <body>
-            <h1>Welcome to the Interactive Shell</h1>
-            <form method="post">
-                <input type="text" name="command" size="50">
-                <input type="submit" value="Run Command">
-            </form>
-            <br>
-            <a href="/logout">Logout</a>
-        </body>
-        </html>
-    '''
+            command_output = f"Error: {e.returncode}\n{e.output}"
+
+    return render_template('shell.html', command_output=command_output)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=2424)

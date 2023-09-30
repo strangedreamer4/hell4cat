@@ -34,18 +34,7 @@ class ChatApp:
         self.animation_label = tk.Label(self.root, image=self.animation_photo, bg="black")
         self.animation_label.place(relx=0.5, rely=0.5, anchor="center")
 
-        self.root.after(3000, self.show_loading_effect)
-
-    def generate_welcome_audio(self):
-        welcome_text = "Opening Hellcat"  # Customize the welcome message
-        tts = gTTS(text=welcome_text, lang="en")
-        tts.save("welcome_message.mp3")
-
-    def show_loading_effect(self):
-        self.animation_label.destroy()
-        self.generate_welcome_audio()
-
-        playsound.playsound("welcome_message.mp3", True)
+       
 
         self.loading_label = tk.Label(self.root, text="Loading...", fg="green", bg="black")
         self.loading_label.place(relx=0.5, rely=0.5, anchor="center")
